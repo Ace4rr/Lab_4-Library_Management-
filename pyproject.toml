@@ -1,0 +1,13 @@
+[project]
+name = "TCP_server"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "pre-commit>=4.3.0",
+    "pytest>=9.0.1",
+    "ruff>=0.14.2",
+]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src.data"]
