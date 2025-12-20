@@ -48,7 +48,7 @@ class BookCollection:
 
     def __contains__(self,item: Union[Book,str])->bool:
         if isinstance(item,Book):
-            return any(b.isbn==item.isbn for b in self._books)
+            return item in self._books
         return any(b.isbn==item for b in self._books)
 
     def __add__(self,other: "BookCollection") ->"BookCollection":
@@ -57,7 +57,7 @@ class BookCollection:
         for b in self._books+list(other):
             if b.isbn not in seen:
                 merged._books.append(b)
-                seen+=(b.isbn)
+                seen.add(b.isbn)
 
         if self._indexer is not None:
             self._indexer.rebuild(merged._books)
